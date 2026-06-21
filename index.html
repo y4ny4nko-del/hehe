@@ -1,10 +1,124 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Page title</title>
+    <title>Hello</title>
+    <style>
+        {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #fff1f2 0%, #e0f2fe 100%);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+       }
+       
+        .envelope-btn {
+            background-color: #ffffff;
+            color: #e11d48;
+            border: 2px solid #ffe4e6;
+            padding: 20px 40px;
+            font-size: 18px;
+            letter-spacing: 1px;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(225, 29, 72, 0.15);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: pulse 2s infinite;
+        }
+
+        .envelope-btn:hover {
+            transform: scale(1.05) translateY(-3px);
+            box-shadow: 0 15px 30px rgba(225, 29, 72, 0.25);
+            background-color: #fff1f2;
+        }
+
+        .letter-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            max-width: 550px;
+            width: 90%;
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+            text-align: center;
+            display: none;
+            opacity: 0;
+            transform: translateY(40px) scale(0.95);
+            transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .letter-card.reveal {
+            display: block;
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        h1 {
+            color: #1e293b;
+            font-size: 26px;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        p {
+            color: #475569;
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .signature {
+            margin-top: 30px;
+            text-align: right;
+            color: #0f172a;
+            font-weight: 600;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+    </style>
 </head>
 <body>
-    <h1>Fuck You!</h1>
+
+    <!-- THE BUTTON SHE TAPS -->
+    <button class="envelope-btn" id="openBtn">Tap!</button>
+
+    <!-- THE LETTER CARD -->
+    <div class="letter-card" id="card">
+        <h1>A Note of Reflection</h1>
+        <p>Hi Lovee,</p>
+        <p>I'm really sorry sa akung nabuhat, i keep on pushing u away and hate kaau nimo ang kanang mo repeat all over again and yet ako ky balik nsd ani nga situation.</p>
+        <p>I'm really sorryy, i realize it too late and now na push away nsd tika og usabb, cge lang kog ingon nga i want to end but the truth is i really don't want to lose you, my actions, kaning mo say og makig end ky if magpadayun pako mag sig ning ani ky ma lose jud tikaa, I'll fix it na poo, dili nako mag pataka og overthink aron dili nsd ta ma end up balik ani nga situation where it's soo kapoy, I'm really sorry.</p>
+        <p>I will focus on something that can improve my self and become a better person na, I'll think jud maau sa unsa ako i chat or actions na buhaton before mo proceed, in that way dili na mausab pa ang kani nga situation, thank you for opening thiss.</p>
+        <p class="signature"> <br>Yanmar</p>
+    </div>
+
+    <!-- THE SCRIPT THAT MAKES IT WORK -->
+    <script>
+        const openBtn = document.getElementById('openBtn');
+        const card = document.getElementById('card');
+
+        openBtn.addEventListener('click', () => {
+            openBtn.style.display = 'none';
+            card.style.display = 'block';
+            
+            setTimeout(() => {
+                card.classList.add('reveal');
+            }, 50);
+        });
+    </script>
+
 </body>
 </html>
